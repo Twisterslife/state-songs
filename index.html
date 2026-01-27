@@ -2,25 +2,220 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meine Website</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>State Songs</title>
+  <meta name="description" content="State Songs – Prompt-Seiten für Regulation und Priming." />
+
   <style>
-    body { font-family: Arial, sans-serif; max-width: 700px; margin: 60px auto; padding: 0 16px; }
-    h1 { margin-bottom: 8px; }
-    p { line-height: 1.5; }
-    .box { padding: 16px; border: 1px solid #ddd; border-radius: 12px; }
+    :root{
+      --bg: #0b0d12;
+      --card: rgba(255,255,255,0.06);
+      --cardHover: rgba(255,255,255,0.09);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.62);
+      --line: rgba(255,255,255,0.12);
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --radius: 20px;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(120,90,255,0.18), transparent 60%),
+        radial-gradient(900px 700px at 90% 30%, rgba(0,200,255,0.14), transparent 55%),
+        radial-gradient(1100px 700px at 50% 90%, rgba(255,180,0,0.08), transparent 60%),
+        var(--bg);
+      min-height: 100vh;
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 18px 70px;
+    }
+
+    .hero{
+      text-align: center;
+      padding: 18px 10px 26px;
+    }
+
+    .logoBig{
+      width: min(360px, 80vw);
+      height: auto;
+      display: inline-block;
+      filter: drop-shadow(0 18px 40px rgba(0,0,0,0.45));
+      opacity: 0.98;
+    }
+
+    h1{
+      margin: 18px 0 8px 0;
+      font-size: 2.2rem;
+      letter-spacing: 0.4px;
+    }
+
+    .sub{
+      margin: 0 auto;
+      max-width: 70ch;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .card{
+      display: block;
+      text-decoration: none;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px;
+      transition: transform .08s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .card:hover{
+      background: linear-gradient(180deg, var(--cardHover), rgba(255,255,255,0.03));
+      border-color: rgba(255,255,255,0.18);
+      transform: translateY(-2px);
+    }
+
+    .cardTop{
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.70);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      white-space: nowrap;
+    }
+
+    .title{
+      font-size: 1.25rem;
+      margin: 0;
+      letter-spacing: 0.2px;
+    }
+
+    .desc{
+      margin: 10px 0 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    .steps{
+      margin-top: 12px;
+      color: rgba(255,255,255,0.70);
+      font-size: 0.92rem;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .dot{ opacity: 0.45; }
+
+    .note{
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.25);
+      color: rgba(255,255,255,0.70);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    footer{
+      margin-top: 18px;
+      text-align: center;
+      color: rgba(255,255,255,0.42);
+      font-size: 0.85rem;
+    }
+
+    @media (min-width: 860px){
+      .grid{
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      h1{ font-size: 2.5rem; }
+      .wrap{ padding-left: 22px; padding-right: 22px; }
+    }
   </style>
 </head>
+
 <body>
-  <h1>Hi, ich bin Paul.</h1>
-  <div class="box">
-    <p>Das ist meine erste GitHub-Pages-Seite.</p>
-    <p><b>Kontakt:</b> paul@example.com</p>
+  <div class="wrap">
+    <section class="hero">
+      <img class="logoBig" src="/state-songs/assets/Logo.svg" alt="State Songs Logo" />
+      <h1>State Songs</h1>
+      <p class="sub">
+        Wähle den passenden Einstieg. <strong>Regulation</strong>, wenn es innerlich eng ist.
+        <strong>Priming</strong>, wenn du dich auf etwas Konkretes ausrichten willst.
+      </p>
+    </section>
+
+    <section class="grid" aria-label="Auswahl">
+      <a class="card" href="/state-songs/regulation/">
+        <div class="cardTop">
+          <h2 class="title">Regulation</h2>
+          <span class="tag">Belastung → tragfähige Ruhe</span>
+        </div>
+        <p class="desc">
+          Für Liebeskummer, Traurigkeit, Überforderung, innere Unruhe, Grübeln.
+          Der Song nimmt auf und stabilisiert – ohne Push, ohne Eskalation.
+        </p>
+        <div class="steps">
+          <span>Text beschreiben</span><span class="dot">•</span>
+          <span>Prompt kopieren</span><span class="dot">•</span>
+          <span>ein Song</span>
+        </div>
+      </a>
+
+      <a class="card" href="/state-songs/priming/">
+        <div class="cardTop">
+          <h2 class="title">Priming</h2>
+          <span class="tag">Ausrichtung vor einer Situation</span>
+        </div>
+        <p class="desc">
+          Für Gespräch, Date, Präsentation, Sport oder Fokusarbeit.
+          Der Song richtet aus – ohne Beruhigung, ohne Reparatur, ohne Druck.
+        </p>
+        <div class="steps">
+          <span>Situation beschreiben</span><span class="dot">•</span>
+          <span>Prompt kopieren</span><span class="dot">•</span>
+          <span>ein Song</span>
+        </div>
+      </a>
+    </section>
+
+    <div class="note">
+      Hinweis: Wenn du unsicher bist, beginne mit <strong>Regulation</strong>.
+      Ein Song genügt. Keine Varianten, kein Vergleich.
+    </div>
+
+    <footer>
+      © Twisterslife • State Songs
+    </footer>
   </div>
-
-  <a href="./regulation/">Regulation</a>
-<a href="./priming/">Priming</a>
-
-  
 </body>
 </html>
