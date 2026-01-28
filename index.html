@@ -4,83 +4,76 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>State Songs</title>
-  <meta name="description" content="State Songs – Regulation und Priming durch Musik." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Wähle den passenden Einstieg: Regulation oder Priming." />
 
+  <!-- Inter (Typography standard) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared theme -->
   <link rel="stylesheet" href="assets/theme.css" />
 </head>
 
 <body>
+  <div class="wrap home">
 
-  <main class="wrap">
-    
+    <img class="homeLogo" src="assets/Wave.svg" alt="State Songs Logo" />
 
-    <!-- HERO -->
-    <section class="hero center">
-      <img src="assets/Wave.svg" alt="State Songs" class="hero-logo" />
+    <h1 class="homeTitle">STATE SONGS</h1>
 
-      <h1 class="hero-title">STATE SONGS</h1>
+    <p class="homeIntro">
+      Wähle den passenden Einstieg.
+      <strong>Regulation</strong>, wenn es innerlich eng ist.
+      <strong>Priming</strong>, wenn du dich auf etwas Konkretes ausrichten willst.
+    </p>
 
-      <p class="hero-sub">
-        Wähle den passenden Einstieg.
-        <strong>Regulation</strong>, wenn es innerlich eng ist.
-        <strong>Priming</strong>, wenn du dich auf etwas Konkretes ausrichten willst.
-      </p>
-    </section>
-
-    <!-- ENTRY GRID -->
-    <section class="grid two">
-
-      <!-- REGULATION -->
-      <a href="regulation/" class="card entry">
-        <div class="entry-head">
-          <h2>Regulation</h2>
-          <span class="pill soft">Belastung → tragfähige Ruhe</span>
+    <section class="homeGrid" aria-label="Einstieg wählen">
+      <a class="tile" href="regulation/">
+        <div class="tileHeader">
+          <h2 class="tileTitle">Regulation</h2>
+          <div class="badge">Belastung → tragfähige Ruhe</div>
         </div>
 
-        <p class="entry-text">
+        <p class="tileText">
           Für Liebeskummer, Traurigkeit, Überforderung, innere Unruhe, Grübeln.
           Der Song nimmt auf und stabilisiert – ohne Push, ohne Eskalation.
         </p>
 
-        <div class="entry-meta">
-          Zustand beschreiben • Prompt kopieren • ein Song
+        <div class="tileSteps" aria-hidden="true">
+          <span>Zustand beschreiben</span><span class="sep">•</span>
+          <span>Prompt kopieren</span><span class="sep">•</span>
+          <span>ein Song</span>
         </div>
       </a>
 
-      <!-- PRIMING -->
-      <a href="priming/" class="card entry">
-        <div class="entry-head">
-          <h2>Priming</h2>
-          <span class="pill soft">Ausrichtung vor einer Situation</span>
+      <a class="tile" href="priming/">
+        <div class="tileHeader">
+          <h2 class="tileTitle">Priming</h2>
+          <div class="badge">Ausrichtung vor einer Situation</div>
         </div>
 
-        <p class="entry-text">
+        <p class="tileText">
           Für Gespräch, Date, Präsentation, Sport oder Fokusarbeit.
           Der Song richtet aus – ohne Beruhigung, ohne Reparatur, ohne Druck.
         </p>
 
-        <div class="entry-meta">
-          Situation beschreiben • Prompt kopieren • ein Song
+        <div class="tileSteps" aria-hidden="true">
+          <span>Situation beschreiben</span><span class="sep">•</span>
+          <span>Prompt kopieren</span><span class="sep">•</span>
+          <span>ein Song</span>
         </div>
       </a>
-
     </section>
 
-    <!-- HINT -->
-    <p class="hint center">
-      <strong>Hinweis:</strong>
-      Wenn du unsicher bist, beginne mit <strong>Regulation</strong>.
-      Ein Song genügt. Keine Varianten. Kein Vergleich.
-    </p>
-
-    <div class="footer">
-      © Twisterslife • State Songs
+    <div class="homeHint">
+      Hinweis: Wenn du unsicher bist, beginne mit <strong>Regulation</strong>.
+      Ein Song genügt. Keine Varianten, kein Vergleich.
     </div>
 
-  </main>
-
+    <div class="homeFooter">
+      © Twisterslife • State Songs
+    </div>
+  </div>
 </body>
 </html>
