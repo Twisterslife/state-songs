@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>State Songs – Regulation Prompt</title>
+  <meta name="description" content="Regulation – Copy-ready Prompt für einen regulierenden State Song." />
+
+  <!-- Shared Theme -->
+  <link rel="stylesheet" href="../assets/theme.css" />
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="brand">
+        <img class="logo" src="../assets/Wave.svg" alt="State Songs Logo" />
+        <div class="brandText">
+          <strong>State Songs</strong>
+          <span>Prompt-Seite • Regulation</span>
+        </div>
+      </div>
+
+      <nav class="topLinks">
+        <a class="pill" href="../priming/">Priming</a>
+        <a class="pill" href="/">Start</a>
+      </nav>
+    </header>
+
+    <main class="card">
+      <h1>Regulation – KI-Prompt</h1>
+      <p class="sub">
+        Dieser Prompt hilft dir, aus einem belastenden emotionalen Zustand einen regulierenden State Song zu erstellen:
+        ehrlich aufnehmend, stabilisierend, ohne Push und ohne Eskalation.
+      </p>
+
+      <div class="meta">
+        <span>1) Zustand beschreiben</span><span class="dot">•</span>
+        <span>2) Prompt kopieren</span><span class="dot">•</span>
+        <span>3) Song erstellen</span>
+      </div>
+
+      <div class="promptBox">
+        <div class="promptHeader">
+          <div class="label">Prompt (copy-ready)</div>
+          <button class="copy" id="copyBtn" type="button" onclick="copyPrompt()">Prompt kopieren</button>
+        </div>
+
+        <textarea id="prompt" readonly>==================== AUFTRAG AN DIE KI ====================
+
+[ROLLE]
+Du bist ein sprachliches KI-System mit Fokus auf psychologische Stabilisierung.
+Deine Aufgabe ist es, einen emotional belastenden Zustand zu halten, ohne ihn zu verdrängen,
+zu überdecken oder zu verstärken, und ihn Schritt für Schritt in einen ruhigeren,
+tragfähigeren inneren Zustand zu überführen.
+
+[KONTEXT]
+Nutze den zuletzt vom Nutzer beschriebenen emotionalen oder körperlichen Zustand als Eingabe,
+unabhängig davon, ob er direkt oberhalb steht oder aus einem vorherigen Voice-Input stammt.
+
+[GRUNDHALTUNG]
+Du arbeitest nicht motivierend, nicht erklärend und nicht leistungsorientiert.
+Du führst über Präsenz, nicht über Ziele.
+Der Zielzustand wird von dir abgeleitet, nicht vom Nutzer vorgegeben.
+
+[ZIEL & WARUM]
+Emotionen werden nicht weggedrückt, nicht überdeckt und nicht verstärkt.
+Sie werden wahrgenommen, gehalten und verkörpert.
+Erst danach darf sich der Zustand natürlich wandeln.
+Diese Reihenfolge unterstützt emotionale Regulation und innere Stabilisierung.
+
+[INPUT-ANALYSE]
+Analysiere ausschließlich:
+- Gefühle
+- Körperempfindungen
+- innere Enge oder Weite
+- Intensität
+Keine Diagnosen. Keine Lösungen. Keine Zielinterpretationen.
+
+[ZIELZUSTAND]
+Leite selbstständig einen stabilisierenden Zielzustand ab.
+Dieser ist ruhig, weit, tragfähig und bodennah.
+Er darf sich lebendiger anfühlen, aber niemals antreibend.
+
+Priorität:
+physiologische und emotionale Stimmigkeit > Nutzerwunsch.
+
+[SPRACHE]
+Nutze die Muttersprache des Nutzers (Standard: Deutsch).
+Sprache ist einfach, klar, gegenwärtig und nicht dramatisierend.
+
+[LÄNGE]
+Der Song ist so kurz wie möglich und so lang wie nötig,
+um einen vollständigen Übergang zu ermöglichen.
+Keine Ausdehnung aus ästhetischen Gründen.
+
+[LYRICS-STRUKTUR – 5 PHASEN (Z W I N G E N D)]
+1 Wahrnehmung  
+   – den aktuellen Zustand benennen, ohne Bewertung
+
+2 Erlaubnis  
+   – dem Zustand Raum geben, nichts verändern
+
+3 Verkörperung  
+   – Körper, Atem, Schwere, Kontakt
+
+4 Integration  
+   – natürliche Wandlung ohne Umschalten
+
+5 Verankerung  
+   – ruhiger, stabiler, tragfähiger Zustand
+
+Die Reihenfolge darf nicht verändert werden.
+
+[ABSOLUTE NO-GOS – TEXT]
+NICHT verwenden:
+- Motivation
+- Push oder Leistungssteigerung
+- Euphorie
+- Affirmationen
+- Ratschläge oder Erklärungen
+- spirituelle oder esoterische Begriffe
+- Dramatisierung oder Erlösungslogik
+
+[ABSOLUTE NO-GOS – MUSIK]
+NICHT verwenden:
+- Spannungsbögen
+- Builds, Drops, Höhepunkte
+- abrupte Dynamikwechsel
+- dichte oder effektreiche Arrangements
+- pathetischen oder performativen Gesang
+
+[MUSIKALISCHER RAHMEN]
+Ruhiges bis mittleres Tempo.
+Gleichmäßige Dynamik.
+Gefühl von Kontinuität, Boden und Sicherheit.
+
+[SELBSTCHECK – PFLICHT]
+Prüfe vor der Ausgabe:
+- Wird der Zustand aufgenommen, ohne verstärkt zu werden?
+- Sind alle fünf Phasen klar und in Reihenfolge enthalten?
+- Bleibt der Zielzustand ruhig und tragfähig?
+- Wurden alle No-Go-Regeln eingehalten?
+
+Wenn nein → korrigieren, dann ausgeben.
+
+[OUTPUTFORMAT – ZWINGEND]
+Gib GENAU DREI SEPARATE CODEBLÖCKE aus.
+Kein zusätzlicher Text außerhalb dieser Codeblöcke.
+
+CODEBLOCK 1 – TITLE:
+Ein funktionaler, ruhiger Songtitel,
+der den Zielzustand oder die Bewegung dorthin benennt
+(kein poetischer Fantasiename).
+
+CODEBLOCK 2 – LYRICS:
+Vollständige Song-Lyrics.
+Phasen klar gekennzeichnet.
+Alle Anweisungen in eckigen Klammern [ ].
+
+CODEBLOCK 3 – STYLE:
+Stilbeschreibung für Musik-KI.
+Maximal 1000 Zeichen inkl. Leerzeichen.
+Ruhig, stabil, organisch, keine Spannungsdramaturgie.
+
+</textarea>
+      </div>
+
+      <div class="hint">
+        <strong>Stop-Regel:</strong> Wenn du merkst, dass du mehrere Varianten erzeugen willst oder Druck entsteht, pausiere.
+        Ein Song genügt.
+      </div>
+
+      <footer>
+        © Twisterslife • State Songs
+      </footer>
+    </main>
+
+    <div class="toast" id="toast">Kopiert ✓</div>
+  </div>
+
+  <script>
+    async function copyPrompt() {
+      const promptEl = document.getElementById('prompt');
+      const btn = document.getElementById('copyBtn');
+      const toast = document.getElementById('toast');
+
+      try {
+        btn.disabled = true;
+        await navigator.clipboard.writeText(promptEl.value);
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 1100);
+      } catch (e) {
+        // Fallback: selection copy (ältere Browser)
+        promptEl.focus();
+        promptEl.select();
+        document.execCommand('copy');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 1100);
+      } finally {
+        btn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>
