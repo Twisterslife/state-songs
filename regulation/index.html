@@ -6,18 +6,18 @@
   <title>State Songs – Regulation Prompt</title>
   <meta name="description" content="Regulation – Copy-ready Prompt für einen regulierenden State Song." />
 
-  <!-- Shared Theme -->
+  <!-- Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../assets/theme.css" />
+  <link rel="stylesheet" href="../theme.css" />
 </head>
 
 <body>
   <div class="wrap">
 
-    <header>
+    <header class="header">
       <div class="brand">
         <img class="logo" src="../assets/Wave.svg" alt="State Songs Logo" />
         <div class="brandText">
@@ -28,11 +28,11 @@
 
       <nav class="topLinks">
         <a class="pill" href="../priming/">Priming</a>
-        <a class="pill" href="/">Start</a>
+        <a class="pill" href="../">Start</a>
       </nav>
     </header>
 
-    <main class="card">
+    <main class="card" style="padding:22px;">
       <h1>Regulation – KI-Prompt</h1>
       <p class="sub">
         Dieser Prompt hilft dir, aus einem belastenden emotionalen Zustand einen regulierenden State Song zu erstellen:
@@ -48,10 +48,10 @@
       <div class="promptBox">
         <div class="promptHeader">
           <div class="label">Prompt (copy-ready)</div>
-          <button class="copy" id="copyBtn" type="button" onclick="copyPrompt()">Prompt kopieren</button>
+          <button class="copyBtn" id="copyBtn" type="button">Prompt kopieren</button>
         </div>
 
-        <textarea id="prompt" readonly>==================== AUFTRAG AN DIE KI ====================
+        <textarea class="prompt" id="prompt" readonly>==================== AUFTRAG AN DIE KI ====================
 
 [ROLLE]
 Du bist ein sprachliches KI-System mit Fokus auf psychologische Stabilisierung.
@@ -100,19 +100,19 @@ um einen vollständigen Übergang zu ermöglichen.
 Keine Ausdehnung aus ästhetischen Gründen.
 
 [LYRICS-STRUKTUR – 5 PHASEN (Z W I N G E N D)]
-1 Wahrnehmung  
+1 Wahrnehmung
    – den aktuellen Zustand benennen, ohne Bewertung
 
-2 Erlaubnis  
+2 Erlaubnis
    – dem Zustand Raum geben, nichts verändern
 
-3 Verkörperung  
+3 Verkörperung
    – Körper, Atem, Schwere, Kontakt
 
-4 Integration  
+4 Integration
    – natürliche Wandlung ohne Umschalten
 
-5 Verankerung  
+5 Verankerung
    – ruhiger, stabiler, tragfähiger Zustand
 
 Die Reihenfolge darf nicht verändert werden.
@@ -166,9 +166,7 @@ Alle Anweisungen in eckigen Klammern [ ].
 CODEBLOCK 3 – STYLE:
 Stilbeschreibung für Musik-KI.
 Maximal 1000 Zeichen inkl. Leerzeichen.
-Ruhig, stabil, organisch, keine Spannungsdramaturgie.
-
-</textarea>
+Ruhig, stabil, organisch, keine Spannungsdramaturgie.</textarea>
       </div>
 
       <div class="hint">
@@ -176,36 +174,41 @@ Ruhig, stabil, organisch, keine Spannungsdramaturgie.
         Ein Song genügt.
       </div>
 
-      <footer>
-        © Twisterslife • State Songs
-      </footer>
+      <div class="footerInside">© Twisterslife • State Songs</div>
     </main>
 
-    <div class="toast" id="toast">Kopiert ✓</div>
+    <div class="toast" id="toast" role="status" aria-live="polite">Kopiert ✓</div>
   </div>
 
   <script>
-    async function copyPrompt() {
+    (function(){
       const promptEl = document.getElementById('prompt');
       const btn = document.getElementById('copyBtn');
       const toast = document.getElementById('toast');
 
-      try {
-        btn.disabled = true;
-        await navigator.clipboard.writeText(promptEl.value);
+      function showToast(){
         toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 1100);
-      } catch (e) {
-        // Fallback: selection copy (ältere Browser)
-        promptEl.focus();
-        promptEl.select();
-        document.execCommand('copy');
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 1100);
-      } finally {
-        btn.disabled = false;
+        window.setTimeout(() => toast.classList.remove('show'), 1100);
       }
-    }
+
+      async function copyPrompt(){
+        try{
+          btn.disabled = true;
+          await navigator.clipboard.writeText(promptEl.value);
+          showToast();
+        }catch(e){
+          // Fallback
+          promptEl.focus();
+          promptEl.select();
+          document.execCommand('copy');
+          showToast();
+        }finally{
+          btn.disabled = false;
+        }
+      }
+
+      btn.addEventListener('click', copyPrompt);
+    })();
   </script>
 </body>
 </html>
