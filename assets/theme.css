@@ -39,6 +39,10 @@ body{
     radial-gradient(900px 700px at 80% 35%, rgba(255,255,255,0.04), transparent 60%),
     linear-gradient(180deg, var(--bg2), var(--bg));
   min-height: 100vh;
+  font-feature-settings: "cv02","cv03","cv04","cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
 }
 
 img{
