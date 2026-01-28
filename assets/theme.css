@@ -308,3 +308,32 @@ button{
   font-size: 0.85rem;
   color: rgba(255,255,255,0.45);
 }
+
+/* --- MOBILE FIX: Startseite Cards dürfen nie breiter als Viewport werden --- */
+.entry-head{
+  flex-wrap: wrap;
+}
+
+.entry-head h2{
+  flex: 1 1 auto;
+  min-width: 0; /* wichtig gegen Overflow */
+}
+
+.pill{
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Wenn der Screen sehr schmal ist: Pill unter die Überschrift */
+@media (max-width: 420px){
+  .entry-head{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .pill{
+    white-space: normal; /* darf umbrechen */
+  }
+}
+
