@@ -395,3 +395,39 @@ textarea.prompt{
   text-overflow:ellipsis;      /* <<< “…” statt rauslaufen */
   flex:0 1 auto;               /* Badge darf schrumpfen */
 }
+/* --- Mobile-safe Card Header (Title + Badge ohne Overlap) --- */
+.entryHeader{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.entryHeader .entryTitle,
+.entryHeader h3,
+.entryHeader h2{
+  min-width: 0;
+}
+
+.entryHeader .badge{
+  position: static !important;   /* kill absolute */
+  transform: none !important;    /* kill translate */
+  margin: 0 !important;          /* kill negative margin */
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Auf Mobile: Badge unter den Titel */
+@media (max-width: 560px){
+  .entryHeader{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .entryHeader .badge{
+    width: 100%;
+    justify-content: center;
+  }
+}
