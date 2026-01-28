@@ -1,223 +1,276 @@
-/* assets/theme.css */
-/* Shared Theme – State Songs (Start + Prompt-Seiten) */
+/* =========================================================
+   STATE SONGS — SHARED THEME
+   One space. One light. One system.
+   ========================================================= */
 
+/* -------------------------
+   ROOT TOKENS
+------------------------- */
 :root{
-  --bg: #070a10;
-  --bg2: #0a0f18;
+  --bg: #0b0d12;
+  --bg2: #0f131a;
 
-  --card: rgba(255,255,255,0.055);
-  --card2: rgba(255,255,255,0.075);
+  --card: rgba(255,255,255,0.06);
+  --card-strong: rgba(255,255,255,0.08);
 
   --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.62);
+  --muted: rgba(255,255,255,0.65);
+  --soft: rgba(255,255,255,0.45);
 
-  --line: rgba(255,255,255,0.11);
-  --line2: rgba(255,255,255,0.16);
+  --line: rgba(255,255,255,0.12);
 
-  /* Gold/Beige Akzent (Logo) */
-  --accent: rgba(206,168,92,0.85);
-  --accentSoft: rgba(206,168,92,0.18);
+  --gold: #cfa44a;
 
   --btn: rgba(255,255,255,0.92);
   --btnText: #0b0d12;
 
-  --shadow: 0 18px 60px rgba(0,0,0,0.55);
-  --shadow2: 0 10px 28px rgba(0,0,0,0.45);
-
   --radius: 18px;
+  --radius-soft: 14px;
 
-  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  --shadow: 0 18px 60px rgba(0,0,0,0.45);
+
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Layout-Stabilität (Scrollbar-Breite konstant) */
-*{ box-sizing: border-box; }
-html{ overflow-y: scroll; }
-textarea{ scrollbar-gutter: stable; }
+/* -------------------------
+   GLOBAL RESETS
+------------------------- */
+*{
+  box-sizing: border-box;
+  scrollbar-gutter: stable;
+}
 
-/* Page base */
+html{
+  overflow-y: scroll;
+}
+
 body{
-  margin:0;
+  margin: 0;
+  min-height: 100vh;
   font-family: var(--sans);
   color: var(--text);
-  min-height: 100vh;
 
-  /* ONE ROOM background (Startseite-Look: vignette + soft glow) */
   background:
-    /* Vignette / dunkle Ränder */
-    radial-gradient(1400px 900px at 50% 45%, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.85) 100%),
-
-    /* Soft glow im oberen Zentrum */
-    radial-gradient(900px 500px at 50% 12%, rgba(255,255,255,0.06), transparent 60%),
-
-    /* Subtiler Gold-Hauch (Logo-Farbe) */
-    radial-gradient(900px 700px at 50% 18%, rgba(206,168,92,0.10), transparent 62%),
-
-    /* Sehr subtiler kühler Nebel */
-    radial-gradient(900px 700px at 65% 28%, rgba(120,180,200,0.06), transparent 62%),
-
-    /* Base */
+    radial-gradient(1200px 900px at 50% 10%, rgba(255,255,255,0.05), transparent 60%),
+    radial-gradient(900px 700px at 20% 25%, rgba(206,168,92,0.10), transparent 60%),
+    radial-gradient(900px 700px at 80% 35%, rgba(255,255,255,0.04), transparent 60%),
     linear-gradient(180deg, var(--bg2), var(--bg));
 }
 
-/* Shared UI building blocks */
+/* -------------------------
+   LAYOUT
+------------------------- */
 .wrap{
   max-width: 980px;
   margin: 0 auto;
   padding: 28px 18px 70px;
 }
 
-header{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
+.center{
+  text-align: center;
+}
+
+/* -------------------------
+   TYPOGRAPHY
+------------------------- */
+h1, h2, h3{
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+h1{
+  font-size: 2.4rem;
+}
+
+h2{
+  font-size: 1.35rem;
+}
+
+p{
+  margin: 0;
+  line-height: 1.55;
+}
+
+strong{
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* -------------------------
+   HERO
+------------------------- */
+.hero{
+  padding: 40px 10px 28px;
+}
+
+.hero-logo{
+  width: 82px;
+  margin-bottom: 14px;
+}
+
+.hero-title{
+  letter-spacing: 4px;
+  font-size: 2.6rem;
+}
+
+.hero-sub{
+  max-width: 68ch;
+  margin: 14px auto 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+/* -------------------------
+   GRID
+------------------------- */
+.grid{
+  display: grid;
   gap: 16px;
-  padding: 14px 14px 18px;
+  margin-top: 28px;
+}
+
+.grid.two{
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 860px){
+  .grid.two{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* -------------------------
+   CARD
+------------------------- */
+.card{
+  background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.03));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+/* -------------------------
+   ENTRY CARDS (Startseite)
+------------------------- */
+.entry{
+  text-decoration: none;
+  color: var(--text);
+  transition: background .15s ease, transform .15s ease;
+}
+
+.entry:hover{
+  background: linear-gradient(180deg, var(--card-strong), rgba(255,255,255,0.05));
+}
+
+.entry-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.entry-text{
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.entry-meta{
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: var(--soft);
+}
+
+/* -------------------------
+   PILL
+------------------------- */
+.pill{
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.pill.soft{
+  background: rgba(255,255,255,0.04);
+  color: var(--muted);
+}
+
+/* -------------------------
+   HINT
+------------------------- */
+.hint{
+  margin-top: 22px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* -------------------------
+   PROMPT PAGES
+------------------------- */
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 6px 18px;
 }
 
 .brand{
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   gap: 12px;
-  min-width: 0;
 }
 
 .logo{
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(255,255,255,0.06);
-  object-fit: contain;
-  box-shadow: var(--shadow2);
-  border: 1px solid rgba(255,255,255,0.10);
-  padding: 6px;
-}
-
-.brandText{
-  display:flex;
-  flex-direction: column;
-  line-height: 1.1;
-  min-width: 0;
-}
-
-.brandText strong{
-  font-size: 0.98rem;
-  letter-spacing: 0.2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.08);
 }
 
 .brandText span{
   font-size: 0.85rem;
   color: var(--muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .topLinks{
-  display:flex;
+  display: flex;
   gap: 10px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
 }
 
-.pill{
-  text-decoration:none;
+.topLinks a{
+  text-decoration: none;
   color: var(--text);
-  font-size: 0.9rem;
-  padding: 10px 12px;
+  border: 1px solid var(--line);
+  padding: 8px 12px;
   border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(8px);
+  font-size: 0.85rem;
 }
 
-.pill:hover{
-  background: rgba(255,255,255,0.07);
-  border-color: var(--line2);
-}
-
-.card{
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 22px;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-}
-
-h1{
-  margin: 0 0 8px 0;
-  font-size: 1.65rem;
-  letter-spacing: 0.2px;
-}
-
-.sub{
-  margin: 0 0 18px 0;
-  color: var(--muted);
-  max-width: 72ch;
-  font-size: 1rem;
-}
-
-.meta{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.dot{ opacity: 0.5; }
-
+/* -------------------------
+   PROMPT BOX
+------------------------- */
 .promptBox{
   margin-top: 18px;
   background: rgba(0,0,0,0.35);
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: var(--radius-soft);
   overflow: hidden;
-  box-shadow: 0 12px 34px rgba(0,0,0,0.45);
 }
 
 .promptHeader{
-  display:flex;
-  align-items:center;
+  display: flex;
   justify-content: space-between;
-  gap: 12px;
+  align-items: center;
   padding: 12px 14px;
   border-bottom: 1px solid var(--line);
-  background: rgba(255,255,255,0.035);
+  background: rgba(255,255,255,0.04);
 }
-
-.promptHeader .label{
-  font-size: 0.95rem;
-  color: var(--muted);
-}
-
-button.copy{
-  appearance: none;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 12px;
-  padding: 10px 12px;
-  font-weight: 650;
-  cursor: pointer;
-  background: rgba(255,255,255,0.92);
-  color: var(--btnText);
-  display:flex;
-  align-items:center;
-  gap: 8px;
-  transition: transform .05s ease, opacity .15s ease, background .15s ease;
-  white-space: nowrap;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
-}
-
-button.copy:hover{ background: rgba(255,255,255,0.96); }
-button.copy:active{ transform: scale(0.98); }
-button.copy[disabled]{ opacity: 0.55; cursor: not-allowed; }
 
 textarea{
   width: 100%;
@@ -226,45 +279,32 @@ textarea{
   outline: none;
   resize: vertical;
   padding: 16px;
-  font-family: var(--mono);
-  font-size: 0.92rem;
-  line-height: 1.45;
-  color: rgba(255,255,255,0.90);
   background: transparent;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
-.hint{
-  margin-top: 14px;
-  color: var(--muted);
-  font-size: 0.95rem;
-  border-top: 1px solid var(--line);
-  padding-top: 14px;
+/* -------------------------
+   BUTTON
+------------------------- */
+button{
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  background: var(--btn);
+  color: var(--btnText);
+  cursor: pointer;
 }
 
-.hint strong{ color: rgba(255,255,255,0.92); }
-
-.hint strong::before{
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: var(--accent);
-  margin-right: 8px;
-  box-shadow: 0 0 0 4px var(--accentSoft);
-  transform: translateY(1px);
-}
-
-footer{
-  margin-top: 16px;
-  color: rgba(255,255,255,0.45);
-  font-size: 0.85rem;
+/* -------------------------
+   FOOTER
+------------------------- */
+.footer{
+  margin-top: 18px;
   text-align: center;
-}
-
-/* Responsive */
-@media (min-width: 860px){
-  header{ padding-left: 6px; padding-right: 6px; }
-  .wrap{ padding-left: 22px; padding-right: 22px; }
-  textarea{ min-height: 520px; }
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
 }
