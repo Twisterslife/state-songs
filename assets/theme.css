@@ -1,8 +1,10 @@
 /* =========================================================
-   STATE SONGS – SHARED THEME (FINAL, FIXED HEADER)
+   STATE SONGS – SHARED THEME (FINAL)
    ========================================================= */
 
-/* ---------- CSS VARIABLES ---------- */
+/* -------------------------
+   CSS VARIABLES
+-------------------------- */
 :root{
   --bg: #0b0d12;
   --bg2: #0f131a;
@@ -19,239 +21,172 @@
   --shadow: 0 18px 60px rgba(0,0,0,0.45);
   --radius: 18px;
 
-  --sans: 'inter',system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+  --sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
            "Apple Color Emoji","Segoe UI Emoji";
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
           "Liberation Mono","Courier New", monospace;
 }
 
-/* ---------- RESET / BASICS ---------- */
-*{ box-sizing: border-box; }
-html{ overflow-y: scroll; }
+/* -------------------------
+   RESET / BASICS
+-------------------------- */
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+html{
+  overflow-y: scroll;
+}
 
 body{
   margin: 0;
   font-family: var(--sans);
   color: var(--text);
   background:
-    radial-gradient(1200px 900px at 50% 10%, rgba(255,255,255,0.05), transparent 60%),
-    radial-gradient(900px 700px at 20% 25%, rgba(210,173,85,0.10), transparent 60%),
-    radial-gradient(900px 700px at 80% 35%, rgba(255,255,255,0.04), transparent 60%),
+    radial-gradient(1200px 800px at 15% 20%, rgba(210,173,85,0.12), transparent 60%),
+    radial-gradient(900px 700px at 85% 20%, rgba(120,90,255,0.12), transparent 55%),
+    radial-gradient(1100px 700px at 50% 95%, rgba(255,180,0,0.06), transparent 60%),
     linear-gradient(180deg, var(--bg2), var(--bg));
   min-height: 100vh;
+
   font-feature-settings: "cv02","cv03","cv04","cv11";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-
 }
 
-img{
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-a{ color: inherit; text-decoration: none; }
-
-/* ---------- LAYOUT ---------- */
+/* -------------------------
+   LAYOUT WRAPPER
+-------------------------- */
 .wrap{
   max-width: 980px;
   margin: 0 auto;
-  padding: 28px 18px 70px;
+  padding: 28px 18px 72px;
 }
 
-/* =========================================================
-   HEADER (Unterseiten + optional Start)
-   ========================================================= */
+/* -------------------------
+   HEADER / BRAND
+-------------------------- */
 header{
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 14px 14px 18px;
+  padding: 14px 0 18px;
 }
 
 .brand{
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
   gap: 12px;
-  min-width: 0;
 }
 
-/* WICHTIG: Das begrenzt dein Wave.svg */
 .logo{
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 12px;
   background: rgba(255,255,255,0.08);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
   object-fit: contain;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.10);
-  flex: 0 0 auto;
 }
 
 .brandText{
-  display:flex;
+  display: flex;
   flex-direction: column;
-  line-height: 1.1;
-  min-width: 0;
+  line-height: 1.15;
 }
 
 .brandText strong{
-  font-size: 0.98rem;
-  letter-spacing: 0.2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.brandText span{
-  font-size: 0.85rem;
-  color: var(--muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.topLinks{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.pill{
-  display:inline-block;
-  text-decoration:none;
-  color: var(--text);
-  font-size: 0.9rem;
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.05);
-  white-space: nowrap;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.pill:hover{ background: rgba(255,255,255,0.08); }
-
-/* =========================================================
-   STARTSEITE – HERO
-   ========================================================= */
-.hero{
-  margin-top: 24px;
-  margin-bottom: 36px;
-}
-
-.hero.center{ text-align: center; }
-
-.hero-logo{
-  width: 96px;
-  margin: 0 auto 18px;
-}
-
-.hero-title{
-  font-size: 2.1rem;
-  letter-spacing: 0.18em;
-  margin: 0 0 14px;
-}
-
-.hero-sub{
-  font-size: 1rem;
-  color: var(--muted);
-  max-width: 60ch;
-  margin: 0 auto;
-}
-
-.hero-sub strong{
-  color: var(--text);
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
-/* ---------- GRID ---------- */
-.grid{ display: grid; gap: 18px; }
-.grid.two{ grid-template-columns: 1fr; }
-
-@media (min-width: 720px){
-  .grid.two{ grid-template-columns: 1fr 1fr; }
+.brandText span{
+  font-size: 0.82rem;
+  color: var(--muted);
 }
 
-/* ---------- CARDS ---------- */
+/* -------------------------
+   NAV PILLS
+-------------------------- */
+.topLinks{
+  display: flex;
+  gap: 10px;
+}
+
+.pill{
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.88rem;
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.05);
+}
+
+.pill:hover{
+  background: rgba(255,255,255,0.08);
+}
+
+/* -------------------------
+   CARDS
+-------------------------- */
 .card{
-  background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.03));
+  background: linear-gradient(180deg, var(--card), var(--card-soft));
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 22px;
 }
 
-/* ---------- ENTRY CARDS (STARTSEITE) ---------- */
-.entry{ display: block; }
-
-.entry-head{
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.entry-head h2{
-  margin: 0;
-  font-size: 1.25rem;
-  min-width: 0;
-}
-
-.entry-text{
-  margin: 14px 0 16px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.entry-meta{
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.55);
-}
-
-/* Mobile: Pill unter Titel */
-@media (max-width: 420px){
-  .entry-head{
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .pill{ white-space: normal; }
-}
-
-/* =========================================================
-   PROMPT SEITEN – TYPO (wie Priming)
-   ========================================================= */
-.card h1{
+/* -------------------------
+   TYPOGRAPHY
+-------------------------- */
+h1{
+  margin: 0 0 10px 0;
   font-size: 1.55rem;
-  line-height: 1.15;
-  margin: 0 0 10px;
-  letter-spacing: 0;
+  font-weight: 600;
+  letter-spacing: 0.2px;
 }
 
-.card .sub{
-  margin: 0 0 14px;
+h2{
+  margin: 0 0 6px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+p{
+  margin: 0 0 14px 0;
+  line-height: 1.55;
+}
+
+.sub{
   color: var(--muted);
-  max-width: 78ch;
-  font-size: 0.98rem;
-  line-height: 1.45;
+  max-width: 72ch;
 }
 
-.card .meta{
-  font-size: 0.9rem;
+/* -------------------------
+   META / STEPS
+-------------------------- */
+.meta{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 0.88rem;
   color: var(--muted);
-  margin: 0 0 14px;
 }
 
-/* ---------- PROMPT BOX ---------- */
+.dot{
+  opacity: 0.5;
+}
+
+/* -------------------------
+   PROMPT BOX
+-------------------------- */
 .promptBox{
   margin-top: 18px;
-  margin-bottom: 6px;
   background: rgba(0,0,0,0.35);
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -262,94 +197,98 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
   padding: 12px 14px;
   border-bottom: 1px solid var(--line);
   background: rgba(255,255,255,0.04);
 }
 
 .promptHeader .label{
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--muted);
 }
 
-textarea{
-  width: 100%;
-  min-height: 520px;
-  border: none;
-  outline: none;
-  resize: vertical;
-  padding: 16px;
-  font-family: var(--mono);
-  font-size: 0.92rem;
-  line-height: 1.45;
-  background: transparent;
-  color: var(--text);
-  scrollbar-gutter: stable;
+/* -------------------------
+   BUTTONS
+-------------------------- */
+button{
+  font-family: var(--sans);
 }
 
-/* ---------- BUTTON ---------- */
 button.copy{
   appearance: none;
   border: none;
   border-radius: 12px;
-  padding: 10px 12px;
+  padding: 9px 12px;
+  font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
   background: rgba(255,255,255,0.92);
   color: #0b0d12;
-  white-space: nowrap;
 }
 
-button.copy:disabled{
-  opacity: 0.55;
-  cursor: not-allowed;
+button.copy:active{
+  transform: scale(0.98);
 }
 
-/* ---------- HINT ---------- */
+/* -------------------------
+   TEXTAREA
+-------------------------- */
+textarea{
+  width: 100%;
+  min-height: 520px;
+  padding: 16px;
+  border: none;
+  outline: none;
+  resize: vertical;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--text);
+  background: transparent;
+  scrollbar-gutter: stable;
+}
+
+/* -------------------------
+   FOOTER / HINT
+-------------------------- */
 .hint{
-  margin-top: 14px;
+  margin-top: 16px;
   padding-top: 14px;
   border-top: 1px solid var(--line);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--muted);
-  text-align: center;
 }
 
-.hint strong{ color: var(--text); }
-
-/* ---------- FOOTER ---------- */
-footer,
-.footer{
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
+footer{
+  margin-top: 20px;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: rgba(255,255,255,0.45);
 }
 
-/* ---------- TOAST ---------- */
-.toast{
-  position: fixed;
-  left: 50%;
-  bottom: 18px;
-  transform: translateX(-50%);
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.16);
-  color: var(--text);
-  padding: 10px 14px;
-  border-radius: 999px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 16px 50px rgba(0,0,0,0.45);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .18s ease, transform .18s ease;
-  font-size: 0.92rem;
-  z-index: 9999;
-}
+/* -------------------------
+   MOBILE
+-------------------------- */
+@media (max-width: 720px){
+  .wrap{
+    padding: 22px 14px 64px;
+  }
 
-.toast.show{
-  opacity: 1;
-  transform: translateX(-50%) translateY(-4px);
+  header{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .topLinks{
+    align-self: flex-end;
+  }
+
+  h1{
+    font-size: 1.35rem;
+  }
+
+  textarea{
+    min-height: 420px;
+  }
 }
