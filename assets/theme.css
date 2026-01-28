@@ -1,5 +1,5 @@
 /* =========================================================
-   STATE SONGS – SHARED THEME
+   STATE SONGS – SHARED THEME (FINAL)
    ========================================================= */
 
 /* ---------- CSS VARIABLES ---------- */
@@ -19,18 +19,16 @@
   --shadow: 0 18px 60px rgba(0,0,0,0.45);
   --radius: 18px;
 
-  --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+  --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+           "Apple Color Emoji","Segoe UI Emoji";
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono","Courier New", monospace;
 }
 
 /* ---------- RESET / BASICS ---------- */
-*{
-  box-sizing: border-box;
-}
+*{ box-sizing: border-box; }
 
-html{
-  overflow-y: scroll;
-}
+html{ overflow-y: scroll; }
 
 body{
   margin: 0;
@@ -68,9 +66,7 @@ a{
   margin-bottom: 36px;
 }
 
-.hero.center{
-  text-align: center;
-}
+.hero.center{ text-align: center; }
 
 .hero-logo{
   width: 96px;
@@ -78,7 +74,7 @@ a{
 }
 
 .hero-title{
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   letter-spacing: 0.18em;
   margin: 0 0 14px;
 }
@@ -106,9 +102,7 @@ a{
 }
 
 @media (min-width: 720px){
-  .grid.two{
-    grid-template-columns: 1fr 1fr;
-  }
+  .grid.two{ grid-template-columns: 1fr 1fr; }
 }
 
 /* ---------- CARDS ---------- */
@@ -121,9 +115,7 @@ a{
 }
 
 /* ---------- ENTRY CARDS (STARTSEITE) ---------- */
-.entry{
-  display: block;
-}
+.entry{ display: block; }
 
 .entry-head{
   display: flex;
@@ -170,29 +162,32 @@ a{
     flex-direction: column;
     align-items: flex-start;
   }
-  .pill{
-    white-space: normal;
-  }
+  .pill{ white-space: normal; }
 }
 
-/* ---------- PROMPT SEITEN ---------- */
-h1{
-  margin: 0 0 8px;
-  font-size: 1.65rem;
+/* ---------- PROMPT SEITEN TYPO (ruhig wie Priming) ---------- */
+.card h1{
+  font-size: 1.55rem;
+  line-height: 1.15;
+  margin: 0 0 10px;
+  letter-spacing: 0;
 }
 
-.sub{
-  margin: 0 0 18px;
+.card .sub{
+  margin: 0 0 14px;
   color: var(--muted);
-  max-width: 72ch;
+  max-width: 78ch;
+  font-size: 0.98rem;
+  line-height: 1.45;
 }
 
-.meta{
+.card .meta{
   font-size: 0.9rem;
   color: var(--muted);
-  margin-bottom: 14px;
+  margin: 0 0 14px;
 }
 
+/* ---------- PROMPT BOX ---------- */
 .promptBox{
   margin-top: 18px;
   margin-bottom: 6px;
@@ -258,9 +253,7 @@ button.copy:disabled{
   text-align: center;
 }
 
-.hint strong{
-  color: var(--text);
-}
+.hint strong{ color: var(--text); }
 
 /* ---------- FOOTER ---------- */
 footer,
@@ -288,12 +281,4 @@ footer,
   box-shadow: 0 16px 50px rgba(0,0,0,0.45);
   opacity: 0;
   pointer-events: none;
-  transition: opacity .18s ease, transform .18s ease;
-  font-size: 0.92rem;
-  z-index: 9999;
-}
-
-.toast.show{
-  opacity: 1;
-  transform: translateX(-50%) translateY(-4px);
-}
+  transit
