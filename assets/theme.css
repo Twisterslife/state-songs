@@ -1,44 +1,31 @@
 /* =========================================================
-   STATE SONGS — SHARED THEME
-   One space. One light. One system.
+   STATE SONGS – SHARED THEME
    ========================================================= */
 
-/* -------------------------
-   ROOT TOKENS
-------------------------- */
+/* ---------- CSS VARIABLES ---------- */
 :root{
   --bg: #0b0d12;
   --bg2: #0f131a;
 
   --card: rgba(255,255,255,0.06);
-  --card-strong: rgba(255,255,255,0.08);
+  --card-soft: rgba(255,255,255,0.04);
 
   --text: rgba(255,255,255,0.92);
   --muted: rgba(255,255,255,0.65);
-  --soft: rgba(255,255,255,0.45);
-
   --line: rgba(255,255,255,0.12);
 
-  --gold: #cfa44a;
-
-  --btn: rgba(255,255,255,0.92);
-  --btnText: #0b0d12;
-
-  --radius: 18px;
-  --radius-soft: 14px;
+  --accent: #d2ad55;
 
   --shadow: 0 18px 60px rgba(0,0,0,0.45);
+  --radius: 18px;
 
-  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --sans: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
 }
 
-/* -------------------------
-   GLOBAL RESETS
-------------------------- */
+/* ---------- RESET / BASICS ---------- */
 *{
   box-sizing: border-box;
-  scrollbar-gutter: stable;
 }
 
 html{
@@ -47,103 +34,84 @@ html{
 
 body{
   margin: 0;
-  min-height: 100vh;
   font-family: var(--sans);
   color: var(--text);
-
   background:
     radial-gradient(1200px 900px at 50% 10%, rgba(255,255,255,0.05), transparent 60%),
-    radial-gradient(900px 700px at 20% 25%, rgba(206,168,92,0.10), transparent 60%),
+    radial-gradient(900px 700px at 20% 25%, rgba(210,173,85,0.10), transparent 60%),
     radial-gradient(900px 700px at 80% 35%, rgba(255,255,255,0.04), transparent 60%),
     linear-gradient(180deg, var(--bg2), var(--bg));
+  min-height: 100vh;
 }
 
-/* -------------------------
-   LAYOUT
-------------------------- */
+img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- LAYOUT ---------- */
 .wrap{
   max-width: 980px;
   margin: 0 auto;
   padding: 28px 18px 70px;
 }
 
-.center{
+/* ---------- HERO (STARTSEITE) ---------- */
+.hero{
+  margin-top: 24px;
+  margin-bottom: 36px;
+}
+
+.hero.center{
   text-align: center;
 }
 
-/* -------------------------
-   TYPOGRAPHY
-------------------------- */
-h1, h2, h3{
-  margin: 0;
-  font-weight: 600;
-  letter-spacing: 0.2px;
+.hero-logo{
+  width: 96px;
+  margin: 0 auto 18px;
 }
 
-h1{
-  font-size: 2.4rem;
+.hero-title{
+  font-size: 2.2rem;
+  letter-spacing: 0.18em;
+  margin: 0 0 14px;
 }
 
-h2{
-  font-size: 1.35rem;
+.hero-sub{
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 60ch;
+  margin: 0 auto;
 }
 
-p{
-  margin: 0;
-  line-height: 1.55;
-}
-
-strong{
+.hero-sub strong{
   color: var(--text);
   font-weight: 600;
 }
 
-/* -------------------------
-   HERO
-------------------------- */
-.hero{
-  padding: 40px 10px 28px;
-}
-
-.hero-logo{
-  width: 82px;
-  margin-bottom: 14px;
-}
-
-.hero-title{
-  letter-spacing: 4px;
-  font-size: 2.6rem;
-}
-
-.hero-sub{
-  max-width: 68ch;
-  margin: 14px auto 0;
-  font-size: 1.05rem;
-  color: var(--muted);
-}
-
-/* -------------------------
-   GRID
-------------------------- */
+/* ---------- GRID ---------- */
 .grid{
   display: grid;
-  gap: 16px;
-  margin-top: 28px;
+  gap: 18px;
 }
 
 .grid.two{
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 860px){
+@media (min-width: 720px){
   .grid.two{
     grid-template-columns: 1fr 1fr;
   }
 }
 
-/* -------------------------
-   CARD
-------------------------- */
+/* ---------- CARDS ---------- */
 .card{
   background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.03));
   border: 1px solid var(--line);
@@ -152,114 +120,85 @@ strong{
   padding: 22px;
 }
 
-/* -------------------------
-   ENTRY CARDS (Startseite)
-------------------------- */
+/* ---------- ENTRY CARDS (STARTSEITE) ---------- */
 .entry{
-  text-decoration: none;
-  color: var(--text);
-  transition: background .15s ease, transform .15s ease;
-}
-
-.entry:hover{
-  background: linear-gradient(180deg, var(--card-strong), rgba(255,255,255,0.05));
+  display: block;
 }
 
 .entry-head{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
-  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.entry-head h2{
+  margin: 0;
+  font-size: 1.25rem;
+  min-width: 0;
 }
 
 .entry-text{
+  margin: 14px 0 16px;
   color: var(--muted);
-  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .entry-meta{
-  margin-top: 14px;
   font-size: 0.85rem;
-  color: var(--soft);
+  color: rgba(255,255,255,0.55);
 }
 
-/* -------------------------
-   PILL
-------------------------- */
+/* ---------- PILL ---------- */
 .pill{
+  display: inline-block;
   padding: 6px 10px;
+  font-size: 0.85rem;
   border-radius: 999px;
   border: 1px solid var(--line);
-  font-size: 0.8rem;
+  background: rgba(255,255,255,0.05);
   white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.pill.soft{
-  background: rgba(255,255,255,0.04);
+/* Mobile: Pill unter Titel */
+@media (max-width: 420px){
+  .entry-head{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pill{
+    white-space: normal;
+  }
+}
+
+/* ---------- PROMPT SEITEN ---------- */
+h1{
+  margin: 0 0 8px;
+  font-size: 1.65rem;
+}
+
+.sub{
+  margin: 0 0 18px;
   color: var(--muted);
+  max-width: 72ch;
 }
 
-/* -------------------------
-   HINT
-------------------------- */
-.hint{
-  margin-top: 22px;
-  font-size: 0.95rem;
+.meta{
+  font-size: 0.9rem;
   color: var(--muted);
+  margin-bottom: 14px;
 }
 
-/* -------------------------
-   PROMPT PAGES
-------------------------- */
-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 6px 18px;
-}
-
-.brand{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo{
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.08);
-}
-
-.brandText span{
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-.topLinks{
-  display: flex;
-  gap: 10px;
-}
-
-.topLinks a{
-  text-decoration: none;
-  color: var(--text);
-  border: 1px solid var(--line);
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-}
-
-/* -------------------------
-   PROMPT BOX
-------------------------- */
 .promptBox{
   margin-top: 18px;
+  margin-bottom: 6px;
   background: rgba(0,0,0,0.35);
   border: 1px solid var(--line);
-  border-radius: var(--radius-soft);
+  border-radius: 16px;
   overflow: hidden;
 }
 
@@ -272,6 +211,11 @@ header{
   background: rgba(255,255,255,0.04);
 }
 
+.promptHeader .label{
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
 textarea{
   width: 100%;
   min-height: 520px;
@@ -279,61 +223,77 @@ textarea{
   outline: none;
   resize: vertical;
   padding: 16px;
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  line-height: 1.45;
   background: transparent;
   color: var(--text);
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  line-height: 1.45;
+  scrollbar-gutter: stable;
 }
 
-/* -------------------------
-   BUTTON
-------------------------- */
-button{
+/* ---------- BUTTON ---------- */
+button.copy{
+  appearance: none;
   border: none;
   border-radius: 12px;
-  padding: 10px 14px;
+  padding: 10px 12px;
   font-weight: 600;
-  background: var(--btn);
-  color: var(--btnText);
   cursor: pointer;
+  background: rgba(255,255,255,0.92);
+  color: #0b0d12;
 }
 
-/* -------------------------
-   FOOTER
-------------------------- */
+button.copy:disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ---------- HINT ---------- */
+.hint{
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.hint strong{
+  color: var(--text);
+}
+
+/* ---------- FOOTER ---------- */
+footer,
 .footer{
   margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
   text-align: center;
   font-size: 0.85rem;
   color: rgba(255,255,255,0.45);
 }
 
-/* --- MOBILE FIX: Startseite Cards dürfen nie breiter als Viewport werden --- */
-.entry-head{
-  flex-wrap: wrap;
+/* ---------- TOAST ---------- */
+.toast{
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 50px rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+  font-size: 0.92rem;
+  z-index: 9999;
 }
 
-.entry-head h2{
-  flex: 1 1 auto;
-  min-width: 0; /* wichtig gegen Overflow */
+.toast.show{
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
 }
-
-.pill{
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Wenn der Screen sehr schmal ist: Pill unter die Überschrift */
-@media (max-width: 420px){
-  .entry-head{
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .pill{
-    white-space: normal; /* darf umbrechen */
-  }
-}
-
