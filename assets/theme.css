@@ -302,18 +302,23 @@ textarea.prompt{
 .entryCard:hover{
   background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.03));
 }
+
+/* ✅ FIX: Startseiten-Header (Titel + Tag) robust auf Mobile, ohne andere Seiten zu beeinflussen */
 .entryTop{
   display:flex;
-  align-items:center;
+  align-items:flex-start;     /* vorher center -> kann optisch "überlagern" */
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 12px;
+  flex-wrap: wrap;            /* erlaubt Umbruch statt Overlap */
 }
+
 .entryTitle{
-    margin:0;
-  min-width:0;                 /* <<< wichtig bei Flex */
-  flex:1 1 220px; 
+  margin:0;
+  min-width:0;                /* wichtig bei Flex */
+  flex:1 1 220px;             /* Titel darf schrumpfen */
 }
+
 .tag{
   font-size: 0.95rem;
   color: rgba(255,255,255,0.86);
@@ -321,8 +326,14 @@ textarea.prompt{
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.14);
   background: rgba(255,255,255,0.04);
+
   white-space: nowrap;
+  max-width: 100%;            /* nie breiter als Container */
+  overflow: hidden;
+  text-overflow: ellipsis;    /* statt in den Titel zu drücken */
+  flex: 0 1 auto;             /* darf schrumpfen */
 }
+
 .entryText{
   margin: 0 0 14px;
   color: var(--muted);
@@ -362,20 +373,32 @@ textarea.prompt{
   .heroTitle{ letter-spacing: 0.18em; }
   .entryTitle{ font-size: 1.45rem; }
   .tag{ font-size: 0.9rem; }
-   .badge{
-    width:100%;                /* <<< Badge volle Breite */
-    justify-content:center;
+}
+
+/* ✅ Extra-sicher: auf schmalen Geräten Tag unter Titel, volle Breite */
+@media (max-width: 560px){
+  .entryTop{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-items: start;
+  }
+  .tag{
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    display: inline-flex;
   }
 }
 
-
-/* Entry card header: Title + Badge */
+/* ---------- (Optional / legacy) Entry card header: Title + Badge ---------- */
+/* Diese Klassen bleiben drin, falls du sie auf Unterseiten irgendwann nutzt. */
 .entryHeader{
   display:flex;
   align-items:flex-start;
   justify-content:space-between;
   gap:12px;
-  flex-wrap:wrap;              /* <<< wichtig: erlaubt Umbruch */
+  flex-wrap:wrap;
 }
 
 .badge{
@@ -389,12 +412,13 @@ textarea.prompt{
   color:rgba(255,255,255,0.85);
   font-size:0.95rem;
   line-height:1;
-  max-width:100%;              /* <<< nie breiter als Container */
-  white-space:nowrap;          /* standard: eine Zeile */
+  max-width:100%;
+  white-space:nowrap;
   overflow:hidden;
-  text-overflow:ellipsis;      /* <<< “…” statt rauslaufen */
-  flex:0 1 auto;               /* Badge darf schrumpfen */
+  text-overflow:ellipsis;
+  flex:0 1 auto;
 }
+
 /* --- Mobile-safe Card Header (Title + Badge ohne Overlap) --- */
 .entryHeader{
   position: relative;
@@ -411,9 +435,9 @@ textarea.prompt{
 }
 
 .entryHeader .badge{
-  position: static !important;   /* kill absolute */
-  transform: none !important;    /* kill translate */
-  margin: 0 !important;          /* kill negative margin */
+  position: static !important;
+  transform: none !important;
+  margin: 0 !important;
   max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
