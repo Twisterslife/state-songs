@@ -342,11 +342,22 @@ Do NOT include explanatory prose.
         window.setTimeout(() => toast.classList.remove('show'), 1100);
       }
 
+        const COUNTER = "https://state-songs-counter.p-ratka.workers.dev";
+
+  function trackPrimingCopy() {
+    try {
+      fetch(`${COUNTER}/inc?type=priming`, { method: "POST" });
+    } catch (e) {
+      // bewusst ignorieren
+    }
+  }
+
       async function copyPrompt(){
         try{
           btn.disabled = true;
           await navigator.clipboard.writeText(promptEl.value);
           showToast();
+                 trackPrimingCopy();
         }catch(e){
           promptEl.focus();
           promptEl.select();
