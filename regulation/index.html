@@ -326,23 +326,35 @@ Do NOT include explanatory prose.
       }
 
       async function copyPrompt(){
-        try{
-          btn.disabled = true;
-          await navigator.clipboard.writeText(promptEl.value);
-          showToast();
-        }catch(e){
-          // Fallback
-          promptEl.focus();
-          promptEl.select();
-          document.execCommand('copy');
-          showToast();
-        }finally{
-          btn.disabled = false;
-        }
+       try{
+        btn.disabled = true;
+        await navigator.clipboard.writeText(promptEl.value);
+        showToast();
+        trackRegulationCopy();
+      }catch(e){
+        // Fallback
+        promptEl.focus();
+        promptEl.select();
+        document.execCommand('copy');
+        showToast();
+        trackRegulationCopy();
+      }finally{
+        btn.disabled = false;
+      }
       }
 
       btn.addEventListener('click', copyPrompt);
     })();
+
+   const COUNTER = "https://state-songs-counter.p-ratka.workers.dev";
+
+function trackRegulationCopy() {
+  try {
+    fetch(`${COUNTER}/inc?type=regulation`, { method: "POST" });
+  } catch (e) {
+    // bewusst ignorieren
+  }
+}
   </script>
 </body>
 </html>
